@@ -17,7 +17,6 @@ export default function ResultPage({ result, buffaloName, onResetInputs, onBackH
   const IconComponent = ICON_MAP[party.badgeIcon] || Shield;
 
   useEffect(() => {
-    // Trigger confetti celebration on page view
     try {
       confetti({
         particleCount: 100,
@@ -34,7 +33,7 @@ export default function ResultPage({ result, buffaloName, onResetInputs, onBackH
   };
 
   const handleShare = async () => {
-    const shareText = `🐃 Buffalo Political Party Predictor\n\nMy buffalo (${buffaloName || 'Karimban'}) has been predicted to be a member of:\n\n${party.nameMl} (${party.nameEn})\n"${party.sloganMl}"\n\nMatch Confidence: ${result.confidence}%\n\nപോത്ത് രാഷ്ട്രീയ പ്രവചനം!`;
+    const shareText = `🐃 Buffalo Political Party Predictor\n\nMy buffalo (${buffaloName || 'Kaali'}) has been predicted to be a member of:\n\n${party.nameMl} (${party.nameEn})\n"${party.sloganMl}"\n\nMatch Confidence: ${result.confidence}%\n\nഎരുമ രാഷ്ട്രീയ പ്രവചനം!`;
 
     if (navigator.share) {
       try {
@@ -49,7 +48,6 @@ export default function ResultPage({ result, buffaloName, onResetInputs, onBackH
       }
     }
 
-    // Fallback to clipboard
     try {
       await navigator.clipboard.writeText(shareText);
       setCopySuccess(true);
@@ -76,8 +74,8 @@ export default function ResultPage({ result, buffaloName, onResetInputs, onBackH
 
           <h2 className="text-xl sm:text-2xl font-extrabold text-slate-300 mb-2">
             {lang === 'ml' 
-              ? `നിങ്ങളുടെ പോത്ത് (${buffaloName || 'കരിമ്പൻ'}) സജീവ അംഗമാണെന്ന് പ്രവചിച്ചിരിക്കുന്നു:` 
-              : `Your buffalo (${buffaloName || 'Karimban'}) has been predicted to be a member of:`}
+              ? `നിങ്ങളുടെ എരുമ (${buffaloName || 'കാളി'}) സജീവ അംഗമാണെന്ന് പ്രവചിച്ചിരിക്കുന്നു:` 
+              : `Your buffalo (${buffaloName || 'Kaali'}) has been predicted to be a member of:`}
           </h2>
 
           {/* Party Badge Icon & Party Title */}
@@ -121,10 +119,6 @@ export default function ResultPage({ result, buffaloName, onResetInputs, onBackH
           {/* 5 Input Values Used */}
           <div className="grid grid-cols-2 sm:grid-cols-5 gap-3 text-center mb-6">
             <div className="bg-slate-950 p-3 rounded-xl border border-slate-800">
-              <span className="text-slate-400 text-xs block">🌱 തീറ്റ ഉപഭോഗം</span>
-              <span className="font-bold text-white text-sm">{result.inputs.foodConsumption} kg/day</span>
-            </div>
-            <div className="bg-slate-950 p-3 rounded-xl border border-slate-800">
               <span className="text-slate-400 text-xs block">🥛 പാലുൽപ്പാദനം</span>
               <span className="font-bold text-white text-sm">{result.inputs.milkProduction} L/day</span>
             </div>
@@ -133,12 +127,16 @@ export default function ResultPage({ result, buffaloName, onResetInputs, onBackH
               <span className="font-bold text-white text-sm">{result.inputs.dungOutput} kg/day</span>
             </div>
             <div className="bg-slate-950 p-3 rounded-xl border border-slate-800">
+              <span className="text-slate-400 text-xs block">🌱 തീറ്റ ഉപഭോഗം</span>
+              <span className="font-bold text-white text-sm">{result.inputs.foodConsumption} kg/day</span>
+            </div>
+            <div className="bg-slate-950 p-3 rounded-xl border border-slate-800">
               <span className="text-slate-400 text-xs block">🦬 കൊമ്പിന്റെ നീളം</span>
-              <span className="font-bold text-white text-sm">{result.inputs.hornLength} inches</span>
+              <span className="font-bold text-white text-sm">{result.inputs.hornLength} cm</span>
             </div>
             <div className="bg-slate-950 p-3 rounded-xl border border-slate-800 col-span-2 sm:col-span-1">
               <span className="text-slate-400 text-xs block">🚧 സ്വത്ത് നാശനഷ്ടം</span>
-              <span className="font-bold text-white text-sm">{result.inputs.propertyDamage} pts</span>
+              <span className="font-bold text-white text-sm">{result.inputs.propertyDamage} (thousands ₹)</span>
             </div>
           </div>
 
@@ -152,7 +150,7 @@ export default function ResultPage({ result, buffaloName, onResetInputs, onBackH
         <section className="mb-10">
           <div className="text-center mb-4">
             <h3 className="text-xl font-bold text-white">
-              {lang === 'ml' ? 'പോത്ത് രാഷ്ട്രീയ അംഗത്വ കാർഡ്' : 'Buffalo Political Membership Card'}
+              {lang === 'ml' ? 'എരുമ രാഷ്ട്രീയ അംഗത്വ കാർഡ്' : 'Buffalo Political Membership Card'}
             </h3>
             <p className="text-xs text-slate-400">
               {lang === 'ml' ? 'പ്രിന്റ് അല്ലെങ്കിൽ ഷെയർ ചെയ്യുന്നതിനായി താഴെയുള്ള അംഗത്വ കാർഡ് ഉപയോഗിക്കുക' : 'Printable fictional membership certificate'}

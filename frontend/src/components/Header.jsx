@@ -13,7 +13,7 @@ export default function Header({ lang, setLang }) {
           </div>
           <div>
             <h1 className="font-extrabold text-lg sm:text-2xl tracking-tight text-white drop-shadow-md leading-tight">
-              പോത്ത് രാഷ്ട്രീയം
+              എരുമ രാഷ്ട്രീയം
             </h1>
             <p className="text-amber-200 text-xs sm:text-sm font-semibold tracking-wider uppercase">
               BUFFALO POLITICAL PARTY PREDICTOR

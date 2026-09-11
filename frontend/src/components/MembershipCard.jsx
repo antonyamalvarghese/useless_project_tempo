@@ -35,7 +35,7 @@ export default function MembershipCard({ result, buffaloName, lang }) {
           </div>
           <div>
             <h3 className="text-xl sm:text-2xl font-black tracking-tight leading-tight">
-              {lang === 'ml' ? 'പോത്ത് രാഷ്ട്രീയ അംഗത്വ കാർഡ്' : 'BUFFALO POLITICAL MEMBERSHIP CARD'}
+              {lang === 'ml' ? 'എരുമ രാഷ്ട്രീയ അംഗത്വ കാർഡ്' : 'BUFFALO POLITICAL MEMBERSHIP CARD'}
             </h3>
             <p className="text-xs font-bold text-white/80 tracking-widest uppercase">
               OFFICIAL FICTIONAL ELECTION COMMISSION CERTIFICATE
@@ -57,7 +57,7 @@ export default function MembershipCard({ result, buffaloName, lang }) {
             🐃
           </div>
           <span className="text-xs font-black text-slate-700 uppercase tracking-wider">
-            {buffaloName || (lang === 'ml' ? 'കരിമ്പൻ' : 'Karimban')}
+            {buffaloName || (lang === 'ml' ? 'എരുമ' : 'Buffalo')}
           </span>
           <span className="text-[10px] text-slate-400 font-semibold">VERIFIED MEMBER</span>
         </div>
@@ -67,10 +67,10 @@ export default function MembershipCard({ result, buffaloName, lang }) {
           
           <div>
             <span className="text-xs font-bold text-slate-400 uppercase tracking-wider block">
-              {lang === 'ml' ? 'പോത്തിന്റെ പേര് (Buffalo Name):' : 'Buffalo Name / Nickname:'}
+              {lang === 'ml' ? 'എരുമയുടെ പേര് (Buffalo Name):' : 'Buffalo Name / Nickname:'}
             </span>
             <p className="text-xl font-black text-slate-900">
-              {buffaloName || (lang === 'ml' ? 'കരിമ്പൻ (ഉദാഹരണം)' : 'Karimban (Default)')}
+              {buffaloName || (lang === 'ml' ? 'എരുമ' : 'Buffalo')}
             </p>
           </div>
 
@@ -100,13 +100,9 @@ export default function MembershipCard({ result, buffaloName, lang }) {
       <div className="bg-slate-50 rounded-2xl p-4 border border-slate-200 mb-6">
         <h4 className="text-xs font-black text-slate-500 uppercase tracking-wider mb-3 flex items-center">
           <CheckCircle className="w-4 h-4 mr-1 text-emerald-600" />
-          {lang === 'ml' ? 'പോത്തിന്റെ സവിശേഷതകൾ (Characteristics Breakdown)' : 'Buffalo Profile Characteristics'}
+          {lang === 'ml' ? 'എരുമയുടെ സവിശേഷതകൾ (Characteristics Breakdown)' : 'Buffalo Profile Characteristics'}
         </h4>
         <div className="grid grid-cols-2 sm:grid-cols-3 gap-2 text-xs font-semibold">
-          <div className="bg-white p-2 rounded-lg border border-slate-200">
-            <span className="text-slate-400 block text-[10px]">തീറ്റ ഉപഭോഗം</span>
-            <span className="text-slate-900 font-bold">{result.inputs.foodConsumption} kg/day</span>
-          </div>
           <div className="bg-white p-2 rounded-lg border border-slate-200">
             <span className="text-slate-400 block text-[10px]">പാലുൽപ്പാദനം</span>
             <span className="text-slate-900 font-bold">{result.inputs.milkProduction} L/day</span>
@@ -116,12 +112,16 @@ export default function MembershipCard({ result, buffaloName, lang }) {
             <span className="text-slate-900 font-bold">{result.inputs.dungOutput} kg/day</span>
           </div>
           <div className="bg-white p-2 rounded-lg border border-slate-200">
+            <span className="text-slate-400 block text-[10px]">തീറ്റ ഉപഭോഗം</span>
+            <span className="text-slate-900 font-bold">{result.inputs.foodConsumption} kg/day</span>
+          </div>
+          <div className="bg-white p-2 rounded-lg border border-slate-200">
             <span className="text-slate-400 block text-[10px]">കൊമ്പിന്റെ നീളം</span>
-            <span className="text-slate-900 font-bold">{result.inputs.hornLength} inches</span>
+            <span className="text-slate-900 font-bold">{result.inputs.hornLength} cm</span>
           </div>
           <div className="bg-white p-2 rounded-lg border border-slate-200">
             <span className="text-slate-400 block text-[10px]">സ്വത്ത് നാശനഷ്ടം</span>
-            <span className="text-slate-900 font-bold">{result.inputs.propertyDamage} pts</span>
+            <span className="text-slate-900 font-bold">{result.inputs.propertyDamage} (thousands ₹)</span>
           </div>
           <div className="bg-white p-2 rounded-lg border border-slate-200">
             <span className="text-slate-400 block text-[10px]">ML Match Confidence</span>

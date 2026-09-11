@@ -6,9 +6,9 @@ import { Sparkles, Play, ArrowLeft, Info, FileText } from 'lucide-react';
 
 export default function InputPage({ onPredict, onBack, lang, setLang }) {
   const [inputs, setInputs] = useState({
-    foodConsumption: SLIDER_DEFAULTS.foodConsumption.default,
     milkProduction: SLIDER_DEFAULTS.milkProduction.default,
     dungOutput: SLIDER_DEFAULTS.dungOutput.default,
+    foodConsumption: SLIDER_DEFAULTS.foodConsumption.default,
     hornLength: SLIDER_DEFAULTS.hornLength.default,
     propertyDamage: SLIDER_DEFAULTS.propertyDamage.default,
   });
@@ -23,11 +23,10 @@ export default function InputPage({ onPredict, onBack, lang, setLang }) {
 
   const handleSubmit = (e) => {
     e.preventDefault();
-    // Validate numerical inputs
     if (
-      inputs.foodConsumption < 0 ||
       inputs.milkProduction < 0 ||
       inputs.dungOutput < 0 ||
+      inputs.foodConsumption < 0 ||
       inputs.hornLength < 0 ||
       inputs.propertyDamage < 0
     ) {
@@ -64,11 +63,11 @@ export default function InputPage({ onPredict, onBack, lang, setLang }) {
             </div>
 
             <h2 className="text-2xl sm:text-4xl font-black text-amber-300 mb-2 leading-tight">
-              {lang === 'ml' ? 'നിങ്ങളുടെ പോത്തിന്റെ വിവരങ്ങൾ നൽകുക' : 'Enter Your Buffalo Details'}
+              {lang === 'ml' ? 'നിങ്ങളുടെ എരുമയുടെ വിവരങ്ങൾ നൽകുക' : 'Enter Your Buffalo Details'}
             </h2>
             <p className="text-slate-300 text-sm sm:text-base font-medium max-w-xl mx-auto">
               {lang === 'ml' 
-                ? 'അഞ്ച് വിവരങ്ങൾ ഉപയോഗിച്ച് നിങ്ങളുടെ പോത്തിന്റെ രാഷ്ട്രീയ പാർട്ടി പ്രവചിക്കാം!' 
+                ? 'അഞ്ച് വിവരങ്ങൾ ഉപയോഗിച്ച് നിങ്ങളുടെ എരുമയുടെ രാഷ്ട്രീയ പാർട്ടി പ്രവചിക്കാം!' 
                 : 'Predict your buffalo\'s political party using 5 characteristics!'}
             </p>
           </div>
@@ -85,13 +84,13 @@ export default function InputPage({ onPredict, onBack, lang, setLang }) {
             <div className="bg-slate-950/70 p-5 rounded-2xl border border-slate-800">
               <label className="block text-sm sm:text-base font-bold text-amber-200 mb-2 flex items-center">
                 <FileText className="w-4 h-4 mr-2 text-amber-400" />
-                {lang === 'ml' ? 'പോത്തിന്റെ പേര് (ഓപ്ഷണൽ)' : 'Buffalo Name / Nickname (Optional)'}
+                {lang === 'ml' ? 'എരുമയുടെ പേര് (ഓപ്ഷണൽ)' : 'Buffalo Name / Nickname (Optional)'}
               </label>
               <input
                 type="text"
                 value={buffaloName}
                 onChange={(e) => setBuffaloName(e.target.value)}
-                placeholder={lang === 'ml' ? 'ഉദാ: കരിമ്പൻ' : 'e.g. Karimban'}
+                placeholder={lang === 'ml' ? 'ഉദാ: കാളി' : 'e.g. Kaali'}
                 className="w-full px-4 py-3 bg-slate-900 border border-slate-700 rounded-xl text-white placeholder-slate-500 focus:outline-none focus:ring-2 focus:ring-amber-400 font-semibold"
               />
               <span className="text-xs text-slate-400 mt-1 block">
@@ -101,13 +100,6 @@ export default function InputPage({ onPredict, onBack, lang, setLang }) {
 
             {/* 5 Numerical Sliders */}
             <div className="space-y-4">
-              <SliderInput
-                config={SLIDER_DEFAULTS.foodConsumption}
-                value={inputs.foodConsumption}
-                onChange={(val) => handleSliderChange('foodConsumption', val)}
-                lang={lang}
-              />
-
               <SliderInput
                 config={SLIDER_DEFAULTS.milkProduction}
                 value={inputs.milkProduction}
@@ -119,6 +111,13 @@ export default function InputPage({ onPredict, onBack, lang, setLang }) {
                 config={SLIDER_DEFAULTS.dungOutput}
                 value={inputs.dungOutput}
                 onChange={(val) => handleSliderChange('dungOutput', val)}
+                lang={lang}
+              />
+
+              <SliderInput
+                config={SLIDER_DEFAULTS.foodConsumption}
+                value={inputs.foodConsumption}
+                onChange={(val) => handleSliderChange('foodConsumption', val)}
                 lang={lang}
               />
 
@@ -145,10 +144,6 @@ export default function InputPage({ onPredict, onBack, lang, setLang }) {
               </h3>
               <div className="grid grid-cols-2 sm:grid-cols-5 gap-3 text-center text-xs">
                 <div className="bg-slate-900 p-2.5 rounded-xl border border-slate-800">
-                  <span className="text-slate-400 block text-[10px]">തീറ്റ ഉപഭോഗം</span>
-                  <span className="font-bold text-amber-300">{inputs.foodConsumption} kg/day</span>
-                </div>
-                <div className="bg-slate-900 p-2.5 rounded-xl border border-slate-800">
                   <span className="text-slate-400 block text-[10px]">പാലുൽപ്പാദനം</span>
                   <span className="font-bold text-amber-300">{inputs.milkProduction} L/day</span>
                 </div>
@@ -157,12 +152,16 @@ export default function InputPage({ onPredict, onBack, lang, setLang }) {
                   <span className="font-bold text-amber-300">{inputs.dungOutput} kg/day</span>
                 </div>
                 <div className="bg-slate-900 p-2.5 rounded-xl border border-slate-800">
+                  <span className="text-slate-400 block text-[10px]">തീറ്റ ഉപഭോഗം</span>
+                  <span className="font-bold text-amber-300">{inputs.foodConsumption} kg/day</span>
+                </div>
+                <div className="bg-slate-900 p-2.5 rounded-xl border border-slate-800">
                   <span className="text-slate-400 block text-[10px]">കൊമ്പിന്റെ നീളം</span>
-                  <span className="font-bold text-amber-300">{inputs.hornLength} inches</span>
+                  <span className="font-bold text-amber-300">{inputs.hornLength} cm</span>
                 </div>
                 <div className="bg-slate-900 p-2.5 rounded-xl border border-slate-800 col-span-2 sm:col-span-1">
                   <span className="text-slate-400 block text-[10px]">സ്വത്ത് നാശനഷ്ടം</span>
-                  <span className="font-bold text-amber-300">{inputs.propertyDamage} pts</span>
+                  <span className="font-bold text-amber-300">{inputs.propertyDamage} (thousands ₹)</span>
                 </div>
               </div>
             </div>

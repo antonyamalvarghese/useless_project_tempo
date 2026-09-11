@@ -1,26 +1,15 @@
 // Master Configuration for Buffalo Political Party Predictor
 
 const SLIDER_CONFIG = {
-  foodConsumption: {
-    key: "foodConsumption",
-    modelFeature: "food_consumption_kg",
-    labelMl: "തീറ്റ ഉപഭോഗം",
-    labelEn: "Food Consumption",
-    unit: "kg/day",
-    min: 5,
-    max: 40,
-    default: 18,
-    step: 1
-  },
   milkProduction: {
     key: "milkProduction",
     modelFeature: "milk_production_litre",
     labelMl: "പാലുൽപ്പാദനം",
     labelEn: "Milk Production",
     unit: "liters/day",
-    min: 0,
-    max: 35,
-    default: 8,
+    min: 35,
+    max: 70,
+    default: 45,
     step: 1
   },
   dungOutput: {
@@ -29,10 +18,21 @@ const SLIDER_CONFIG = {
     labelMl: "ചാണക അളവ്",
     labelEn: "Dung Output",
     unit: "kg/day",
-    min: 2,
-    max: 30,
-    default: 12,
+    min: 28,
+    max: 56,
+    default: 40,
     step: 1
+  },
+  foodConsumption: {
+    key: "foodConsumption",
+    modelFeature: "food_consumption_kg",
+    labelMl: "തീറ്റ ഉപഭോഗം",
+    labelEn: "Food Consumption",
+    unit: "kg/day",
+    min: 6,
+    max: 9,
+    default: 7.5,
+    step: 0.1
   },
   hornLength: {
     key: "hornLength",
@@ -40,9 +40,9 @@ const SLIDER_CONFIG = {
     labelMl: "കൊമ്പിന്റെ നീളം",
     labelEn: "Horn Length",
     unit: "cm",
-    min: 5,
-    max: 100,
-    default: 24,
+    min: 10,
+    max: 30,
+    default: 20,
     step: 1
   },
   propertyDamage: {
@@ -50,11 +50,11 @@ const SLIDER_CONFIG = {
     modelFeature: "property_damage_cost_inr",
     labelMl: "സ്വത്ത് നാശനഷ്ടം",
     labelEn: "Property Damage Score",
-    unit: "pts",
-    min: 0,
-    max: 200,
-    default: 65,
-    step: 1
+    unit: "thousands (₹)",
+    min: 5,
+    max: 7,
+    default: 6,
+    step: 0.1
   }
 };
 
@@ -66,7 +66,7 @@ const PARTIES = {
     nameEn: "All India Buffalo Association",
     sloganMl: "എരുമ ഒന്നിച്ചാൽ, കുളം നിറയും",
     sloganEn: "When buffaloes unite, the pond fills up!",
-    descriptionMl: "പോത്തുകളുടെ ഐക്യത്തിനും കുളം സംരക്ഷണത്തിനും വേണ്ടി പോരാടുന്ന പ്രമുഖ സംഘടന.",
+    descriptionMl: "എരുമകളുടെ ഐക്യത്തിനും കുളം സംരക്ഷണത്തിനും വേണ്ടി പോരാടുന്ന പ്രമുഖ സംഘടന.",
     descriptionEn: "Leading organization fighting for buffalo unity and pond conservation.",
     themeColor: "#ea580c",
     badgeIcon: "Shield",
@@ -76,7 +76,7 @@ const PARTIES = {
       { labelMl: "ചാണക വിതരണം (Dung Distribution)", value: "സുഗമം (Smooth)" },
       { labelMl: "മേച്ചിൽ നയം (Grazing Policy)", value: "കൂട്ടായ മേയൽ (Collective)" }
     ],
-    explanationTemplateMl: "ഉയർന്ന തീറ്റ ഉപഭോഗവും സമതുലിതമായ ചാണക ഉൽപ്പാദനവും ഈ പോത്തിനെ കുളത്തിലും കവലയിലും ഒരുപോലെ നേതാവാക്കുന്നു! അഖിലേന്ത്യാ എരുമ സംഘത്തിന്റെ യഥാർത്ഥ കരുത്തനാണ് ഇത്."
+    explanationTemplateMl: "ഉയർന്ന തീറ്റ ഉപഭോഗവും സമതുലിതമായ ചാണക ഉൽപ്പാദനവും ഈ എരുമയെ കുളത്തിലും കവലയിലും ഒരുപോലെ നേതാവാക്കുന്നു! അഖിലേന്ത്യാ എരുമ സംഘത്തിന്റെ യഥാർത്ഥ കരുത്തനാണ് ഇത്."
   },
   "Eruma Pullu Avakasha Munnani": {
     id: "pullu_munnani",
@@ -95,7 +95,7 @@ const PARTIES = {
       { labelMl: "വേലി നയം (Fence Policy)", value: "പുല്ലിനായി എന്തും (Whatever for Grass)" },
       { labelMl: "പാലുൽപ്പാദനം (Milk Yield)", value: "ഉയർന്ന ഗുണമേന്മ (High Quality)" }
     ],
-    explanationTemplateMl: "വലിയ അളവിലുള്ള തീറ്റ ഉപഭോഗവും ഉയർന്ന പാലുൽപ്പാദനവും ഈ പോത്തിൻ്റെ പുല്ലിനോടുള്ള അടങ്ങാത്ത പ്രേമത്തെ വ്യക്തമാക്കുന്നു. പുല്ല് അവകാശ മുന്നണിയുടെ നട്ടെല്ലാണ് ഇത്!"
+    explanationTemplateMl: "വലിയ അളവിലുള്ള തീറ്റ ഉപഭോഗവും ഉയർന്ന പാലുൽപ്പാദനവും ഈ എരുമയുടെ പുല്ലിനോടുള്ള അടങ്ങാത്ത പ്രേമത്തെ വ്യക്തമാക്കുന്നു. പുല്ല് അവകാശ മുന്നണിയുടെ നട്ടെല്ലാണ് ഇത്!"
   },
   "Deshiya Yuva Eruma Federation": {
     id: "yuva_federation",
@@ -114,7 +114,7 @@ const PARTIES = {
       { labelMl: "കൊമ്പ് വികാസം (Horn Growth)", value: "ദ്രുതഗതിയിൽ (Fast)" },
       { labelMl: "കിടാവ് സംരക്ഷണം (Calf Care)", value: "പ്രഥമ പരിഗണന (Top Priority)" }
     ],
-    explanationTemplateMl: "മിതമായ അളവുകളിലും ഉയർന്ന ഊർജ്ജസ്വലതയിലും നിലകൊള്ളുന്ന ഈ പോത്ത് യുവ തലമുറയുടെ ആവേശവും മാറ്റത്തിനായുള്ള പോരാട്ട വീര്യവും പ്രതിഫലിപ്പിക്കുന്നു!"
+    explanationTemplateMl: "മിതമായ അളവുകളിലും ഉയർന്ന ഊർജ്ജസ്വലതയിലും നിലകൊള്ളുന്ന ഈ എരുമ യുവ തലമുറയുടെ ആവേശവും മാറ്റത്തിനായുള്ള പോരാട്ട വീര്യവും പ്രതിഫലിപ്പിക്കുന്നു!"
   },
   "Eruma Swathanthrya Munnani": {
     id: "swathanthrya_munnani",
@@ -123,7 +123,7 @@ const PARTIES = {
     nameEn: "Buffalo Freedom Front",
     sloganMl: "കയറഴിയട്ടെ, കൊമ്പുയരട്ടെ",
     sloganEn: "Untie the rope, raise the horns!",
-    descriptionMl: "വേലികളും കയറുകളും ഇല്ലാത്ത സ്വതന്ത്രമായ പോത്ത് ജീവിതം ലക്ഷ്യമിടുന്ന മുന്നണി.",
+    descriptionMl: "വേലികളും കയറുകളും ഇല്ലാത്ത സ്വതന്ത്രമായ എരുമ ജീവിതം ലക്ഷ്യമിടുന്ന മുന്നണി.",
     descriptionEn: "Front aiming for a free buffalo life without fences and ropes.",
     themeColor: "#dc2626",
     badgeIcon: "Unlock",
@@ -133,7 +133,7 @@ const PARTIES = {
       { labelMl: "കയറഴിയൽ നിരക്ക് (Rope Untying Rate)", value: "സെക്കൻഡുകൾക്കുള്ളിൽ (In Seconds)" },
       { labelMl: "സ്വതന്ത്ര മേയൽ (Free Roam)", value: "അതിരുകളില്ലാതെ (Unbounded)" }
     ],
-    explanationTemplateMl: "ഈ പോത്തിന്റെ ശക്തമായ കൊമ്പുകളും ഉയർന്ന സ്വത്ത് നാശനഷ്ട സ്കോറും ഇതിനെ ഒരു വിപ്ലവാത്മക സ്വാതന്ത്ര്യ പോരാളിയുടെ സ്വഭാവത്തിലേക്ക് നയിക്കുന്നു! കയറഴിയട്ടെ, കൊമ്പുയരട്ടെ!"
+    explanationTemplateMl: "ഈ എരുമയുടെ ശക്തമായ കൊമ്പുകളും ഉയർന്ന സ്വത്ത് നാശനഷ്ട സ്കോറും ഇതിനെ ഒരു വിപ്ലവാത്മക സ്വാതന്ത്ര്യ പോരാളിയുടെ സ്വഭാവത്തിലേക്ക് നയിക്കുന്നു! കയറഴിയട്ടെ, കൊമ്പുയരട്ടെ!"
   }
 };
 

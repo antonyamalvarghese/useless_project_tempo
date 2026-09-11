@@ -39,11 +39,14 @@ def predict():
             return jsonify({"error": "No input data provided"}), 400
 
         # Extract features with fallbacks for camelCase or snake_case
-        milk = float(data.get('milkProduction', data.get('milk_production_litre', 8)))
-        dung = float(data.get('dungOutput', data.get('dung_kg', 12)))
-        food = float(data.get('foodConsumption', data.get('food_consumption_kg', 18)))
-        horn = float(data.get('hornLength', data.get('horn_length_cm', 24)))
-        damage = float(data.get('propertyDamage', data.get('property_damage_cost_inr', 65)))
+        milk = float(data.get('milkProduction', data.get('milk_production_litre', 45)))
+        dung = float(data.get('dungOutput', data.get('dung_kg', 40)))
+        food = float(data.get('foodConsumption', data.get('food_consumption_kg', 7.5)))
+        horn = float(data.get('hornLength', data.get('horn_length_cm', 20)))
+        raw_damage = float(data.get('propertyDamage', data.get('property_damage_cost_inr', 6)))
+
+        # Convert property damage if input is in thousands (5 - 7)
+        damage_inr = raw_damage * 1000 if raw_damage <= 100 else raw_damage
 
         # Construct DataFrame matching exact feature names and order
         input_df = pd.DataFrame([{
@@ -51,7 +54,7 @@ def predict():
             'dung_kg': dung,
             'food_consumption_kg': food,
             'horn_length_cm': horn,
-            'property_damage_cost_inr': damage
+            'property_damage_cost_inr': damage_inr
         }])[FEATURE_NAMES]
 
         # Run model prediction
@@ -76,7 +79,7 @@ def predict():
                 "milkProduction": milk,
                 "dungOutput": dung,
                 "hornLength": horn,
-                "propertyDamage": damage
+                "propertyDamage": raw_damage
             }
         })
     except Exception as e:

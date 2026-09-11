@@ -2,7 +2,7 @@ import React from 'react';
 import Header from '../components/Header';
 import PartyCard from '../components/PartyCard';
 import { PARTIES_LIST } from '../config/appConfig';
-import { Sparkles, ArrowRight, Vote, Award, ShieldAlert } from 'lucide-react';
+import { Sparkles, ArrowRight, Vote, ShieldAlert } from 'lucide-react';
 
 export default function LandingPage({ onStart, lang, setLang }) {
   return (
@@ -26,16 +26,16 @@ export default function LandingPage({ onStart, lang, setLang }) {
           
           <div className="inline-flex items-center space-x-2 px-4 py-2 bg-amber-400/10 border border-amber-400/30 rounded-full text-amber-300 text-xs sm:text-sm font-semibold mb-6 shadow-md backdrop-blur-md">
             <Sparkles className="w-4 h-4 text-amber-400 animate-spin" />
-            <span>{lang === 'ml' ? 'ആദ്യമായി മെഷീൻ ലേണിംഗ് പോത്ത് രാഷ്ട്രീയ പ്രവചനം!' : 'First ML Powered Buffalo Political Predictor!'}</span>
+            <span>{lang === 'ml' ? 'ആദ്യമായി മെഷീൻ ലേണിംഗ് എരുമ രാഷ്ട്രീയ പ്രവചനം!' : 'First ML Powered Buffalo Political Predictor!'}</span>
           </div>
 
           <h1 className="text-3xl sm:text-5xl lg:text-6xl font-black text-transparent bg-clip-text bg-gradient-to-r from-amber-200 via-amber-400 to-orange-400 leading-tight mb-6 drop-shadow-lg">
-            {lang === 'ml' ? 'പോത്തിന്റെ പാർട്ടി ഏതാണെന്ന് പ്രവചിക്കാം!' : 'Which political party does your buffalo belong to?'}
+            {lang === 'ml' ? 'എരുമയുടെ പാർട്ടി ഏതാണെന്ന് പ്രവചിക്കാം!' : 'Which political party does your buffalo belong to?'}
           </h1>
 
           <p className="text-base sm:text-xl text-slate-300 font-medium leading-relaxed max-w-3xl mx-auto mb-8 drop-shadow">
             {lang === 'ml' 
-              ? 'നിങ്ങളുടെ പോത്തിന്റെ അഞ്ച് സവിശേഷതകൾ (തീറ്റ, പാൽ, ചാണകം, കൊമ്പ്, സ്വത്ത് നാശനഷ്ടം) നൽകി അത് ഏത് സാങ്കൽപ്പിക പോത്ത് രാഷ്ട്രീയ പാർട്ടിയിലാണ് എന്ന് KNN Machine Learning model ഉപയോഗിച്ച് പ്രവചിക്കൂ!'
+              ? 'നിങ്ങളുടെ എരുമയുടെ അഞ്ച് സവിശേഷതകൾ (പാൽ, ചാണകം, തീറ്റ, കൊമ്പ്, സ്വത്ത് നാശനഷ്ടം) നൽകി അത് ഏത് സാങ്കൽപ്പിക എരുമ രാഷ്ട്രീയ പാർട്ടിയിലാണ് എന്ന് KNN Machine Learning model ഉപയോഗിച്ച് പ്രവചിക്കൂ!'
               : 'Enter five characteristics of your buffalo to discover its fictional political party using our trained Machine Learning KNN model!'}
           </p>
 
@@ -55,10 +55,10 @@ export default function LandingPage({ onStart, lang, setLang }) {
         <section className="mb-14">
           <div className="text-center mb-8">
             <h2 className="text-2xl sm:text-3xl font-extrabold text-white tracking-tight">
-              {lang === 'ml' ? 'പോത്ത് രാഷ്ട്രീയ മുന്നണികൾ' : 'Fictional Buffalo Political Parties'}
+              {lang === 'ml' ? 'എരുമ രാഷ്ട്രീയ മുന്നണികൾ' : 'Fictional Buffalo Political Parties'}
             </h2>
             <p className="text-slate-400 text-sm mt-1">
-              {lang === 'ml' ? 'നാല് പ്രധാന സാങ്കൽപ്പിക പോത്ത് പാർട്ടികൾ' : 'Explore the 4 fictional party platforms'}
+              {lang === 'ml' ? 'നാല് പ്രധാന സാങ്കൽപ്പിക എരുമ പാർട്ടികൾ' : 'Explore the 4 fictional party platforms'}
             </p>
           </div>
 
@@ -78,7 +78,7 @@ export default function LandingPage({ onStart, lang, setLang }) {
             <Vote className="w-8 h-8 mr-3 text-amber-200 group-hover:rotate-12 transition-transform duration-300" />
             <div className="flex flex-col items-start text-left">
               <span className="leading-none text-white drop-shadow">
-                {lang === 'ml' ? 'പോത്തിന്റെ പാർട്ടി അറിയാൻ ഇവിടെ ക്ലിക്ക് ചെയ്യുക' : 'Start Party Prediction'}
+                {lang === 'ml' ? 'എരുമയുടെ പാർട്ടി അറിയാൻ ഇവിടെ ക്ലിക്ക് ചെയ്യുക' : 'Start Party Prediction'}
               </span>
               <span className="text-xs text-amber-200 uppercase tracking-widest font-bold mt-1">
                 START PREDICTION NOW →
@@ -92,7 +92,7 @@ export default function LandingPage({ onStart, lang, setLang }) {
 
       {/* Footer */}
       <footer className="relative z-10 border-t border-slate-800 bg-slate-950/90 py-6 text-center text-xs text-slate-500">
-        <p>പോത്ത് രാഷ്ട്രീയ പ്രവചനം © 2026 | Powered by Scikit-Learn KNN ML Model & React</p>
+        <p>എരുമ രാഷ്ട്രീയ പ്രവചനം © 2026 | Powered by Scikit-Learn KNN ML Model & React</p>
       </footer>
 
     </div>

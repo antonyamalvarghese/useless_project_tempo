@@ -1,5 +1,5 @@
 import React, { useEffect, useState } from 'react';
-import { CheckCircle2, Loader2, Radar, Sparkles } from 'lucide-react';
+import { CheckCircle2, Loader2, Sparkles } from 'lucide-react';
 
 const STAGES = [
   { id: 1, labelMl: "തീറ്റ ഉപഭോഗം പരിശോധിക്കുന്നു....", labelEn: "Checking food consumption...." },
@@ -56,7 +56,7 @@ export default function LoadingModal({ isOpen, onComplete, lang }) {
 
         {/* Modal Title */}
         <h3 className="text-xl sm:text-2xl font-black text-amber-300 mb-1 leading-snug">
-          {lang === 'ml' ? 'പോത്തിന്റെ പാർട്ടി വിശകലനം ചെയ്യുന്നു...' : 'Predicting Buffalo Party...'}
+          {lang === 'ml' ? 'എരുമയുടെ പാർട്ടി വിശകലനം ചെയ്യുന്നു...' : 'Predicting Buffalo Party...'}
         </h3>
         <p className="text-xs sm:text-sm text-slate-400 mb-6 font-medium">
           {lang === 'ml' ? 'മെഷീൻ ലേണിംഗ് മോഡൽ വിവരങ്ങൾ വിശകലനം ചെയ്യുന്നു' : 'Machine Learning KNN Model processing parameters...'}
