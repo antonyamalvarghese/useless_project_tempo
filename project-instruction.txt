@@ -1,0 +1,1462 @@
+# Build a Fully Functional Multi-Page Web Application: "Buffalo Political Party Predictor"
+
+Create a polished, fully functional, interactive web application titled:
+
+**പോത്ത് രാഷ്ട്രീയ പ്രവചനം | BUFFALO POLITICAL PARTY PREDICTOR**
+
+This is a fun/fictional buffalo political prediction application. The application predicts which fictional buffalo political party a buffalo belongs to based on five numerical buffalo characteristics using a trained Machine Learning model.
+
+The website must not use real-world political party symbols, logos, flags, leaders, or other political imagery. All political parties in this application are fictional buffalo-themed parties.
+
+---
+
+# 1. TECH STACK
+
+Use the following architecture:
+
+### Frontend
+
+* React
+* JavaScript or TypeScript
+* Tailwind CSS
+* Responsive design
+* Modern animations and transitions
+* Lucide React icons or similarly neutral icons
+* Noto Sans Malayalam / Manjari for Malayalam text
+
+### Backend
+
+* Node.js
+* Express.js
+* REST API
+
+### Machine Learning
+
+The trained ML model will be provided as a `.pkl` file.
+
+The ML model must actually be used for prediction.
+
+Do NOT hard-code the party prediction logic in the frontend.
+
+The frontend should send the five numerical input values to the Express backend, and the backend should pass those values to the Python ML model and return the prediction.
+
+Recommended architecture:
+
+React Frontend
+↓
+Express/Node.js API
+↓
+Python ML prediction service
+↓
+`.pkl` ML model
+↓
+Predicted party
+↓
+Express API
+↓
+React Result Page
+
+If necessary, create a small Python prediction service using Flask or FastAPI.
+
+---
+
+# 2. IMPORTANT ML MODEL INTEGRATION
+
+I will provide a trained `.pkl` machine learning model.
+
+Create a clear location for the model, for example:
+
+`backend/model/buffalo_party_model.pkl`
+
+The application must load this model and use it for real predictions.
+
+The five input features are:
+
+1. **തീറ്റ ഉപഭോഗം** — Food Consumption
+2. **പാലുൽപ്പാദനം** — Milk Production
+3. **ചാണക അളവ്** — Dung Output
+4. **കൊമ്പിന്റെ നീളം** — Horn Length
+5. **സ്വത്ത് നാശനഷ്ടം** — Property Damage
+
+All five features are numerical.
+
+Do NOT create dropdowns for these features.
+
+Every feature must be represented by a slider.
+
+The slider must show:
+
+* Current value
+* Unit
+* Minimum value
+* Maximum value
+* Clear Malayalam + English label
+
+The minimum and maximum values must be configurable in one place so they can easily be changed to match the exact range used when training the ML model.
+
+For example:
+
+```text
+FOOD_CONSUMPTION_MIN = ...
+FOOD_CONSUMPTION_MAX = ...
+
+MILK_PRODUCTION_MIN = ...
+MILK_PRODUCTION_MAX = ...
+
+DUNG_OUTPUT_MIN = ...
+DUNG_OUTPUT_MAX = ...
+
+HORN_LENGTH_MIN = ...
+HORN_LENGTH_MAX = ...
+
+PROPERTY_DAMAGE_MIN = ...
+PROPERTY_DAMAGE_MAX = ...
+```
+
+IMPORTANT:
+
+The input order sent to the ML model must exactly match the order used while training the model.
+
+Do not normalize, scale, encode, or transform the values differently from the training pipeline.
+
+If the `.pkl` file already contains preprocessing/pipeline logic, use that pipeline directly.
+
+---
+
+# 3. FICTIONAL POLITICAL PARTIES
+
+Use exactly these four fictional parties.
+
+## PARTY 1
+
+### അഖിലേന്ത്യാ എരുമ സംഘം
+
+Slogan:
+
+### "എരുമ ഒന്നിച്ചാൽ, കുളം നിറയും"
+
+Use a fictional buffalo-themed mascot/icon.
+
+Do NOT use any real political party symbol.
+
+---
+
+## PARTY 2
+
+### എരുമ പുല്ല് അവകാശ മുന്നണി
+
+Slogan:
+
+### "പുല്ല് ഞങ്ങളുടെ അവകാശം, മേയൽ ഞങ്ങളുടെ സ്വാതന്ത്ര്യം!"
+
+Use a fictional buffalo/grass-themed mascot or abstract icon.
+
+Do NOT use any real political party symbol.
+
+---
+
+## PARTY 3
+
+### ദേശീയ യുവ എരുമ ഫെഡറേഷൻ
+
+Slogan:
+
+### "ഇന്നത്തെ കിടാവ്, നാളത്തെ എരുമ നേതാവ്!"
+
+Use a fictional young buffalo/calf-themed mascot or abstract icon.
+
+Do NOT use any real political party symbol.
+
+---
+
+## PARTY 4
+
+### എരുമ സ്വാതന്ത്ര്യ മുന്നണി
+
+Slogan:
+
+### "കയറഴിയട്ടെ, കൊമ്പുയരട്ടെ"
+
+Use a fictional buffalo freedom-themed mascot or abstract icon.
+
+Do NOT use any real political party symbol.
+
+---
+
+# 4. DESIGN SYSTEM
+
+Use a playful, colorful political-election-style visual design while making it obvious that this is a fictional buffalo-themed application.
+
+### Primary colors
+
+Orange header:
+
+`#ea580c`
+
+Blue background:
+
+`#1d4ed8`
+
+Secondary blue:
+
+`#2563eb`
+
+Dark blue:
+
+`#1e3a8a`
+
+White cards:
+
+`#ffffff`
+
+Gold/yellow accent:
+
+`#facc15`
+
+Use these colors consistently.
+
+Cards should have:
+
+* Rounded corners
+* Soft shadows
+* Spacious padding
+* Clear borders
+* High contrast
+* Smooth hover animations
+
+Avoid excessive gradients.
+
+---
+
+# 5. MALAYALAM TYPOGRAPHY
+
+Malayalam is a first-class language in this application.
+
+Use:
+
+```css
+font-family: 'Noto Sans Malayalam', 'Manjari', sans-serif;
+```
+
+Ensure Malayalam glyphs, chandrakkala, vowel signs, and kootaksharam never get clipped.
+
+Use:
+
+```css
+line-height: 1.8;
+```
+
+or higher where necessary.
+
+Use generous:
+
+* padding
+* margins
+* card heights
+* button heights
+* input heights
+
+Never use fixed heights that can clip Malayalam text.
+
+Buttons and inputs should have approximately:
+
+```text
+px-6 py-4
+```
+
+or larger.
+
+The website must be fully responsive.
+
+---
+
+# 6. PAGE 1 — LANDING PAGE
+
+Create a visually impressive landing page.
+
+## Header
+
+Orange banner at the top.
+
+Display:
+
+**പോത്ത് രാഷ്ട്രീയം**
+
+**BUFFALO POLITICAL PARTY PREDICTOR**
+
+Add a Malayalam/English language toggle if practical.
+
+---
+
+## Hero Section
+
+Large heading:
+
+### "പോത്തിന്റെ പാർട്ടി ഏതാണെന്ന് പ്രവചിക്കാം!"
+
+English:
+
+### "Which political party does your buffalo belong to?"
+
+Add a humorous subtitle explaining that the application uses buffalo characteristics and machine learning to predict the fictional political party.
+
+---
+
+# 7. PARTY CARDS
+
+Display the four parties in a responsive grid:
+
+Desktop:
+
+```text
+4 columns
+```
+
+Tablet:
+
+```text
+2 columns
+```
+
+Mobile:
+
+```text
+1 column
+```
+
+Each card should contain:
+
+* Fictional mascot/icon
+* Party name
+* Party slogan
+* Short humorous description
+* "Party Profile" / "പാർട്ടി വിവരങ്ങൾ"
+* 3–4 fictional statistics
+
+The statistics should be clearly presented as fictional/entertainment statistics.
+
+Do NOT imply that they are real-world political statistics.
+
+Example categories:
+
+* Milk production preference
+* Grass consumption tendency
+* Fence attitude
+* Strike enthusiasm
+* Dung production style
+* Buffalo gathering tendency
+
+Do not use real political party statistics.
+
+---
+
+# 8. START BUTTON
+
+At the bottom of the landing page create a large CTA button:
+
+### "പോത്തിന്റെ പാർട്ടി അറിയാൻ ഇവിടെ ക്ലിക്ക് ചെയ്യുക"
+
+Below it:
+
+### "START PREDICTION"
+
+When clicked:
+
+```text
+Landing Page
+→ Input Page
+```
+
+Use a smooth transition animation.
+
+---
+
+# 9. PAGE 2 — BUFFALO INPUT PAGE
+
+Create a centered large card on the blue background.
+
+Title:
+
+### "നിങ്ങളുടെ പോത്തിന്റെ വിവരങ്ങൾ നൽകുക"
+
+English:
+
+### "Enter Your Buffalo Details"
+
+Subtitle:
+
+"അഞ്ച് വിവരങ്ങൾ ഉപയോഗിച്ച് നിങ്ങളുടെ പോത്തിന്റെ രാഷ്ട്രീയ പാർട്ടി പ്രവചിക്കാം!"
+
+---
+
+# 10. ALL FIVE INPUTS MUST BE SLIDERS
+
+Every feature must use a slider.
+
+Do NOT use dropdowns.
+
+Do NOT use free-text inputs for the numerical features.
+
+Each slider should contain:
+
+* Malayalam label
+* English label
+* Current numerical value
+* Unit
+* Minimum value
+* Maximum value
+* Slider track
+* Clearly visible thumb
+
+The value should update live while dragging.
+
+---
+
+## INPUT 1
+
+### തീറ്റ ഉപഭോഗം
+
+English:
+
+**Food Consumption**
+
+Unit:
+
+**kg/day**
+
+Example:
+
+```text
+തീറ്റ ഉപഭോഗം
+Food Consumption
+
+[=========●===========]
+
+18 kg/day
+```
+
+Use configurable minimum and maximum values.
+
+---
+
+## INPUT 2
+
+### പാലുൽപ്പാദനം
+
+English:
+
+**Milk Production**
+
+Unit:
+
+**liters/day**
+
+Example:
+
+```text
+പാലുൽപ്പാദനം
+Milk Production
+
+[======●===============]
+
+8 L/day
+```
+
+Use configurable minimum and maximum values.
+
+---
+
+## INPUT 3
+
+### ചാണക അളവ്
+
+English:
+
+**Dung Output**
+
+Unit:
+
+**kg/day**
+
+Example:
+
+```text
+ചാണക അളവ്
+Dung Output
+
+[===========●=========]
+
+12 kg/day
+```
+
+Use configurable minimum and maximum values.
+
+---
+
+## INPUT 4
+
+### കൊമ്പിന്റെ നീളം
+
+English:
+
+**Horn Length**
+
+Unit:
+
+**inches**
+
+Example:
+
+```text
+കൊമ്പിന്റെ നീളം
+Horn Length
+
+[========●=============]
+
+24 inches
+```
+
+Use configurable minimum and maximum values.
+
+---
+
+## INPUT 5
+
+### സ്വത്ത് നാശനഷ്ടം
+
+English:
+
+**Property Damage**
+
+This must ALSO be numerical and use a slider.
+
+Use a configurable numerical range.
+
+Example:
+
+```text
+സ്വത്ത് നാശനഷ്ടം
+Property Damage
+
+[=============●=======]
+
+65
+```
+
+Do not use a select box.
+
+The exact minimum and maximum must be configurable according to the ML training dataset.
+
+---
+
+# 11. OPTIONAL BUFFALO NAME
+
+Add an optional text field:
+
+### പോത്തിന്റെ പേര്
+
+English:
+
+**Buffalo Name / Nickname**
+
+Placeholder:
+
+```text
+ഉദാ: കരിമ്പൻ
+```
+
+This field is only for display on the result and membership card.
+
+It must NOT be sent to the ML model.
+
+---
+
+# 12. LIVE INPUT SUMMARY
+
+Below the sliders display a compact summary card showing:
+
+```text
+🐃 Buffalo Profile
+
+തീറ്റ ഉപഭോഗം: XX kg/day
+പാലുൽപ്പാദനം: XX L/day
+ചാണക അളവ്: XX kg/day
+കൊമ്പിന്റെ നീളം: XX inches
+സ്വത്ത് നാശനഷ്ടം: XX
+```
+
+Update this summary live whenever a slider changes.
+
+---
+
+# 13. PREDICT BUTTON
+
+Create a large button:
+
+### "പാർട്ടി പ്രവചിക്കുക"
+
+English:
+
+### "PREDICT PARTY"
+
+When clicked:
+
+1. Validate all five numerical values.
+2. Ensure values are within the configured ML ranges.
+3. Disable repeated submissions.
+4. Send a POST request to the backend.
+
+Example API:
+
+```text
+POST /api/predict
+```
+
+Request:
+
+```json
+{
+  "foodConsumption": 18,
+  "milkProduction": 8,
+  "dungOutput": 12,
+  "hornLength": 24,
+  "propertyDamage": 65
+}
+```
+
+The backend returns something similar to:
+
+```json
+{
+  "party": "എരുമ പുല്ല് അവകാശ മുന്നണി",
+  "partyIndex": 1,
+  "confidence": 96
+}
+```
+
+The exact response format can be adapted to the actual ML model.
+
+---
+
+# 14. PAGE 3 — PREDICTION LOADING MODAL
+
+After clicking "PREDICT PARTY", display a full-screen modal.
+
+Dark translucent overlay over the input page.
+
+Title:
+
+### "പോത്തിന്റെ പാർട്ടി വിശകലനം ചെയ്യുന്നു..."
+
+English:
+
+### "Predicting buffalo party..."
+
+Create an animated buffalo-themed loading experience.
+
+Do NOT immediately display the result.
+
+Execute five analysis stages sequentially.
+
+Each stage should take approximately 600ms.
+
+---
+
+## STAGE 1
+
+Spinner:
+
+### "തീറ്റ ഉപഭോഗം പരിശോധിക്കുന്നു...."
+
+English:
+
+**Checking food consumption....**
+
+After completion:
+
+✓
+
+---
+
+## STAGE 2
+
+### "പാലുൽപ്പാദനം പരിശോധിക്കുന്നു......"
+
+English:
+
+**Checking milk production......**
+
+---
+
+## STAGE 3
+
+### "ചാണക അളവ് പരിശോധിക്കുന്നു......."
+
+English:
+
+**Checking dung output.......**
+
+---
+
+## STAGE 4
+
+### "കൊമ്പിന്റെ നീളം പരിശോധിക്കുന്നു........"
+
+English:
+
+**Checking horn length........**
+
+---
+
+## STAGE 5
+
+### "സ്വത്ത് നാശനഷ്ടം പരിശോധിക്കുന്നു........."
+
+English:
+
+**Checking property damage.........**
+
+---
+
+# 15. PROGRESS BAR
+
+Show:
+
+```text
+0%
+20%
+40%
+60%
+80%
+100%
+```
+
+Animate smoothly from 0% to 100%.
+
+Add a playful scanning/radar animation.
+
+For example:
+
+* circular scanning ring
+* buffalo silhouette
+* pulsing dots
+* moving analysis line
+
+Do not make the animation too distracting.
+
+Once all five stages finish:
+
+```text
+Loading Modal
+→ Result Page
+```
+
+---
+
+# 16. PAGE 4 — FINAL RESULT PAGE
+
+Create a highly visual celebration screen.
+
+Use:
+
+* Confetti animation
+* Floating particles
+* Party-themed fictional buffalo mascot
+* Large result card
+* Smooth entrance animation
+
+Do not use any real-world political symbol.
+
+---
+
+# 17. RESULT ANNOUNCEMENT
+
+Display:
+
+### English
+
+**"Your buffalo has been predicted to be a member of:"**
+
+Then show the predicted party name in very large typography.
+
+Malayalam:
+
+### "നിങ്ങളുടെ പോത്ത് [PARTY NAME]-ൽ സജീവ അംഗമാണെന്ന് പ്രവചിച്ചിരിക്കുന്നു!"
+
+The `[PARTY NAME]` must come dynamically from the ML model prediction.
+
+Do NOT hard-code the result.
+
+---
+
+# 18. PARTY SLOGAN
+
+Display the corresponding slogan dynamically.
+
+For example, if the ML model predicts:
+
+**അഖിലേന്ത്യാ എരുമ സംഘം**
+
+display:
+
+### "എരുമ ഒന്നിച്ചാൽ, കുളം നിറയും"
+
+If it predicts:
+
+**എരുമ പുല്ല് അവകാശ മുന്നണി**
+
+display:
+
+### "പുല്ല് ഞങ്ങളുടെ അവകാശം, മേയൽ ഞങ്ങളുടെ സ്വാതന്ത്ര്യം!"
+
+If it predicts:
+
+**ദേശീയ യുവ എരുമ ഫെഡറേഷൻ**
+
+display:
+
+### "ഇന്നത്തെ കിടാവ്, നാളത്തെ എരുമ നേതാവ്!"
+
+If it predicts:
+
+**എരുമ സ്വാതന്ത്ര്യ മുന്നണി**
+
+display:
+
+### "കയറഴിയട്ടെ, കൊമ്പുയരട്ടെ"
+
+Create a central party configuration object so party names, slogans, descriptions, and mascot information are maintained in one place.
+
+---
+
+# 19. PARTY BADGE / MASCOT
+
+Create a fictional badge based on the predicted party.
+
+IMPORTANT:
+
+Do not use:
+
+* BJP symbols
+* Congress symbols
+* Communist symbols
+* AAP symbols
+* Indian political party logos
+* Real political flags
+* Real political leaders
+* Any copyrighted real-world political branding
+
+Use original buffalo-themed icons only.
+
+Examples:
+
+* Buffalo head silhouette
+* Grass
+* Milk bottle
+* Horn illustration
+* Calf silhouette
+* Fence/broken fence
+* Abstract buffalo badge
+
+---
+
+# 20. MATCH CONFIDENCE
+
+Display the ML model's confidence if the model supports probabilities.
+
+Example:
+
+### "96% MATCH"
+
+with an animated circular progress indicator.
+
+If the model does NOT provide probability/confidence information, do NOT invent a confidence score.
+
+Instead display:
+
+### "Prediction Result"
+
+or calculate confidence only if it is statistically valid based on the model's probability output.
+
+The frontend must never fabricate ML confidence.
+
+---
+
+# 21. DIAGNOSTIC BREAKDOWN
+
+Create a section:
+
+### "എന്തുകൊണ്ടാണ് ഈ പാർട്ടി?"
+
+English:
+
+### "Why this party?"
+
+Show the five input values used for prediction.
+
+Example:
+
+```text
+🐃 Buffalo Analysis
+
+🌱 Food Consumption
+18 kg/day
+
+🥛 Milk Production
+8 L/day
+
+💩 Dung Output
+12 kg/day
+
+🦬 Horn Length
+24 inches
+
+🚧 Property Damage
+65
+```
+
+Also display a humorous automatically generated explanation based on the prediction.
+
+Example:
+
+> "ഈ പോത്തിന്റെ ശക്തമായ കൊമ്പുകളും ഉയർന്ന സ്വത്ത് നാശനഷ്ട സ്കോറും ഇതിനെ ഒരു സ്വാതന്ത്ര്യ പോരാളിയുടെ സ്വഭാവത്തിലേക്ക് നയിക്കുന്നു!"
+
+Important:
+
+The actual party classification must come from the ML model.
+
+The explanation is only a humorous presentation layer and must not override the ML prediction.
+
+---
+
+# 22. BUFFALO POLITICAL MEMBERSHIP CARD
+
+Create a beautiful printable membership card.
+
+Title:
+
+### 🐃 BUFFALO POLITICAL MEMBERSHIP CARD
+
+Malayalam:
+
+### "പോത്ത് രാഷ്ട്രീയ അംഗത്വ കാർഡ്"
+
+Display:
+
+```text
+Buffalo Name:
+[Name]
+
+Party:
+[Predicted Party]
+
+Slogan:
+[Party Slogan]
+
+Prediction Match:
+[Confidence if available]
+
+Food Consumption:
+XX kg/day
+
+Milk Production:
+XX L/day
+
+Dung Output:
+XX kg/day
+
+Horn Length:
+XX inches
+
+Property Damage:
+XX
+```
+
+Use a fictional buffalo mascot.
+
+Do not use any real political symbols.
+
+The card should look like a humorous fictional membership card.
+
+---
+
+# 23. PRINT MEMBERSHIP CARD
+
+Add:
+
+### "PRINT MEMBERSHIP CARD"
+
+Use browser printing functionality.
+
+Only the membership card should be optimized for printing.
+
+Use:
+
+```javascript
+window.print()
+```
+
+and print-specific CSS.
+
+---
+
+# 24. SHARE RESULT
+
+Add a:
+
+### "SHARE RESULT"
+
+button.
+
+Use the Web Share API where supported.
+
+Fallback:
+
+* Copy result to clipboard.
+
+Example shared text:
+
+```text
+🐃 Buffalo Political Party Predictor
+
+My buffalo has been predicted as:
+
+[PARTY NAME]
+
+"[PARTY SLOGAN]"
+
+Match: XX%
+
+പോത്ത് രാഷ്ട്രീയ പ്രവചനം
+```
+
+---
+
+# 25. TRY ANOTHER BUFFALO
+
+Create button:
+
+### "പുനഃപരിശോധിക്കുക"
+
+English:
+
+### "TRY ANOTHER BUFFALO"
+
+Clicking this should:
+
+* Clear the previous inputs
+* Reset sliders
+* Reset buffalo name
+* Return to the input page
+
+Do not reload the entire browser unnecessarily.
+
+---
+
+# 26. BACK TO ALL PARTIES
+
+Add another button:
+
+### "BACK TO ALL PARTIES"
+
+Clicking this returns to the landing page.
+
+---
+
+# 27. BACKEND API
+
+Create an Express API:
+
+```text
+POST /api/predict
+```
+
+It should:
+
+1. Receive five numerical features.
+2. Validate them.
+3. Check minimum/maximum ranges.
+4. Pass them to the ML prediction service.
+5. Receive the prediction.
+6. Map the model's output/class index to one of the four fictional parties.
+7. Return the party information.
+
+Example mapping:
+
+```javascript
+const parties = {
+  0: {
+    name: "അഖിലേന്ത്യാ എരുമ സംഘം",
+    slogan: "എരുമ ഒന്നിച്ചാൽ, കുളം നിറയും"
+  },
+  1: {
+    name: "എരുമ പുല്ല് അവകാശ മുന്നണി",
+    slogan: "പുല്ല് ഞങ്ങളുടെ അവകാശം, മേയൽ ഞങ്ങളുടെ സ്വാതന്ത്ര്യം!"
+  },
+  2: {
+    name: "ദേശീയ യുവ എരുമ ഫെഡറേഷൻ",
+    slogan: "ഇന്നത്തെ കിടാവ്, നാളത്തെ എരുമ നേതാവ്!"
+  },
+  3: {
+    name: "എരുമ സ്വാതന്ത്ര്യ മുന്നണി",
+    slogan: "കയറഴിയട്ടെ, കൊമ്പുയരട്ടെ"
+  }
+};
+```
+
+IMPORTANT:
+
+Verify the actual class-label order in the trained ML model before using this mapping.
+
+Do not assume that class `0`, `1`, `2`, and `3` correspond to these parties.
+
+Make the mapping easy to modify in one configuration file.
+
+---
+
+# 28. PYTHON ML SERVICE
+
+If the `.pkl` model cannot be directly used from Node.js, create:
+
+```text
+ml_service/
+    app.py
+    buffalo_party_model.pkl
+    requirements.txt
+```
+
+Use Flask or FastAPI.
+
+Example endpoint:
+
+```text
+POST /predict
+```
+
+The Node.js backend communicates with this service.
+
+The Python service should:
+
+1. Load the `.pkl` model once when the application starts.
+2. Receive JSON.
+3. Convert the five values into the exact feature format used during training.
+4. Run:
+
+```python
+model.predict(...)
+```
+
+5. If supported:
+
+```python
+model.predict_proba(...)
+```
+
+6. Return the predicted class and probability.
+7. Never retrain the model during prediction.
+
+---
+
+# 29. MODEL FILE COMPATIBILITY
+
+Add clear comments explaining where I should put the `.pkl` file.
+
+For example:
+
+```text
+/backend/model/buffalo_party_model.pkl
+```
+
+If the model requires additional preprocessing objects such as:
+
+* scaler
+* encoder
+* feature transformer
+
+support those files as well.
+
+If the `.pkl` is actually a complete sklearn Pipeline, use the pipeline directly.
+
+Do not recreate preprocessing manually if it is already included in the saved pipeline.
+
+---
+
+# 30. ERROR HANDLING
+
+The website must handle:
+
+### Backend unavailable
+
+Show:
+
+**"Prediction service is currently unavailable. Please try again."**
+
+Malayalam:
+
+**"പ്രവചന സേവനം ഇപ്പോൾ ലഭ്യമല്ല. വീണ്ടും ശ്രമിക്കുക."**
+
+### Invalid input
+
+Show a clear validation message.
+
+### ML model missing
+
+Show a developer-friendly backend error in the console and a user-friendly message in the UI.
+
+### Prediction timeout
+
+Show:
+
+**"Prediction is taking longer than expected. Please try again."**
+
+Never expose stack traces to normal users.
+
+---
+
+# 31. RESPONSIVE DESIGN
+
+The website must work properly on:
+
+* Desktop
+* Laptop
+* Tablet
+* Mobile
+
+Desktop:
+
+4 party cards side-by-side.
+
+Tablet:
+
+2 × 2 party cards.
+
+Mobile:
+
+1 card per row.
+
+The input sliders should stack appropriately on smaller screens.
+
+Do not allow horizontal scrolling.
+
+---
+
+# 32. ACCESSIBILITY
+
+Use:
+
+* Proper labels
+* Keyboard-accessible sliders
+* Visible focus states
+* ARIA labels where needed
+* Sufficient color contrast
+* Buttons with clear text
+* No information conveyed only through color
+
+Slider values must always be visible.
+
+---
+
+# 33. ANIMATIONS
+
+Use smooth but lightweight animations:
+
+* Page transitions
+* Card hover
+* Slider interaction
+* Loading spinner
+* Progress bar
+* Radar scan
+* Confetti
+* Result card entrance
+* Membership card reveal
+
+Avoid animations that make the website difficult to use.
+
+---
+
+# 34. PROJECT STRUCTURE
+
+Create a clean structure similar to:
+
+```text
+buffalo-political-party-predictor/
+
+├── frontend/
+│   ├── src/
+│   │   ├── components/
+│   │   │   ├── Header.jsx
+│   │   │   ├── PartyCard.jsx
+│   │   │   ├── SliderInput.jsx
+│   │   │   ├── LoadingModal.jsx
+│   │   │   ├── ResultCard.jsx
+│   │   │   ├── MembershipCard.jsx
+│   │   │   └── Confetti.jsx
+│   │   │
+│   │   ├── pages/
+│   │   │   ├── LandingPage.jsx
+│   │   │   ├── InputPage.jsx
+│   │   │   └── ResultPage.jsx
+│   │   │
+│   │   ├── data/
+│   │   │   └── parties.js
+│   │   │
+│   │   ├── services/
+│   │   │   └── predictionApi.js
+│   │   │
+│   │   ├── App.jsx
+│   │   └── main.jsx
+│   │
+│   └── package.json
+│
+├── backend/
+│   ├── server.js
+│   ├── routes/
+│   │   └── prediction.js
+│   ├── model/
+│   │   └── buffalo_party_model.pkl
+│   └── package.json
+│
+├── ml_service/
+│   ├── app.py
+│   ├── buffalo_party_model.pkl
+│   └── requirements.txt
+│
+└── README.md
+```
+
+Adapt this structure if a better implementation is appropriate.
+
+---
+
+# 35. IMPORTANT: DO NOT FAKE THE ML INTEGRATION
+
+This is critical.
+
+Do NOT create something like:
+
+```javascript
+if (milk > 10) party = ...
+```
+
+Do NOT create fake random predictions.
+
+Do NOT make the UI pretend that it is using the ML model.
+
+The actual `.pkl` model must be used.
+
+The complete flow must be:
+
+```text
+Slider Inputs
+      ↓
+React
+      ↓
+POST /api/predict
+      ↓
+Express
+      ↓
+Python ML Service
+      ↓
+.pkl Model
+      ↓
+Prediction
+      ↓
+Express
+      ↓
+React
+      ↓
+Result Page
+```
+
+---
+
+# 36. CONFIGURATION
+
+Create one configuration file for:
+
+* Feature ranges
+* Feature names
+* Units
+* Party labels
+* Party slogans
+* Party descriptions
+* Model class mapping
+
+This makes the application easy to modify later.
+
+---
+
+# 37. README
+
+Create a detailed README explaining:
+
+1. How to install frontend dependencies.
+2. How to install backend dependencies.
+3. How to install Python dependencies.
+4. Where to place the `.pkl` model.
+5. How to start the Python ML service.
+6. How to start the Express server.
+7. How to start React.
+8. API endpoint.
+9. Expected request format.
+10. Expected response format.
+11. How to change slider ranges.
+12. How to change party information.
+13. How to change ML class mapping.
+
+Include commands such as:
+
+```bash
+npm install
+npm run dev
+```
+
+and appropriate Python commands.
+
+---
+
+# 38. FINAL USER EXPERIENCE
+
+The complete application flow must be:
+
+```text
+LANDING PAGE
+      ↓
+Click "START PREDICTION"
+      ↓
+BUFFALO INPUT PAGE
+      ↓
+Adjust 5 numerical sliders
+      ↓
+Click "PREDICT PARTY"
+      ↓
+LOADING / ANALYSIS MODAL
+      ↓
+5 animated analysis stages
+      ↓
+ML prediction
+      ↓
+RESULT PAGE
+      ↓
+Party + Slogan + Match Confidence
+      ↓
+Diagnostic Breakdown
+      ↓
+Buffalo Political Membership Card
+      ↓
+Print / Share
+      ↓
+Try Another Buffalo
+```
+
+Make the application feel like a fun fictional "buffalo election prediction machine", while keeping the actual ML prediction pipeline technically correct.
+
+The final website should be polished enough for a college project/hackathon demonstration and should look substantially better than a basic CRUD application.
+
+Most importantly:
+
+**Use Malayalam prominently throughout the UI, preserve Malayalam typography correctly, use sliders for all five numerical features, use only fictional buffalo political parties, avoid all real-world political symbols, and integrate the supplied `.pkl` ML model for the actual prediction.**
+
+“Use this image as the visual reference for the landing page. Recreate the layout, spacing, card arrangement, and overall visual style, but use the content and functionality specified in my prompt.
+
+The attached .pkl file is my trained ML model. Inspect its expected input features, preprocessing pipeline, and output/class labels. Integrate this exact model into the backend prediction API. Do not replace it with a dummy model or hard-coded prediction logic.”

@@ -1,0 +1,80 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+@layer base {
+  html {
+    font-family: 'Noto Sans Malayalam', 'Manjari', 'Outfit', sans-serif;
+    line-height: 1.8;
+  }
+  body {
+    overflow-x: hidden;
+  }
+}
+
+/* Custom Glassmorphism Utility */
+.glass-card {
+  background: rgba(15, 23, 42, 0.75);
+  backdrop-filter: blur(16px);
+  -webkit-backdrop-filter: blur(16px);
+  border: 1px solid rgba(255, 255, 255, 0.15);
+}
+
+.glass-card-light {
+  background: rgba(255, 255, 255, 0.95);
+  backdrop-filter: blur(12px);
+  -webkit-backdrop-filter: blur(12px);
+  border: 1px solid rgba(255, 255, 255, 0.3);
+}
+
+/* Custom Radar Animation */
+@keyframes radar-scan {
+  0% {
+    transform: rotate(0deg);
+  }
+  100% {
+    transform: rotate(360deg);
+  }
+}
+
+.animate-radar {
+  animation: radar-scan 3s linear infinite;
+}
+
+@keyframes pulse-glow {
+  0%, 100% {
+    box-shadow: 0 0 15px rgba(250, 204, 21, 0.4);
+  }
+  50% {
+    box-shadow: 0 0 35px rgba(250, 204, 21, 0.8);
+  }
+}
+
+.pulse-yellow {
+  animation: pulse-glow 2s infinite;
+}
+
+/* Custom Print Optimization for Membership Card */
+@media print {
+  body * {
+    visibility: hidden;
+  }
+  #printable-membership-card, #printable-membership-card * {
+    visibility: visible;
+  }
+  #printable-membership-card {
+    position: absolute;
+    left: 0;
+    top: 0;
+    width: 100%;
+    margin: 0;
+    padding: 20px;
+    box-shadow: none !important;
+    border: 3px solid #ea580c !important;
+    background: #ffffff !important;
+    color: #0f172a !important;
+  }
+  .no-print {
+    display: none !important;
+  }
+}
