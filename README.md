@@ -42,8 +42,10 @@ Feature input page
 <img width="1919" height="1033" alt="Screenshot 2026-09-12 052243" src="https://github.com/user-attachments/assets/fe6e2734-0374-4c45-a14b-345b7012c8ce" />
 Predicted output
 
+###project demo
+#video
 
-
+https://drive.google.com/file/d/1h7t_rHPc2NYPfuAv28AEeSI8T7SETC3s/view?usp=drivesdk
 
 ---
 Made with ❤️ at TinkerHub Useless Projects 
