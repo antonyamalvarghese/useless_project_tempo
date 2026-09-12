@@ -37,26 +37,16 @@ For Hardware:
 - [List specifications]
 - [List tools required]
 
-### Implementation
-For Software:
-# Installation
-[commands]
 
-# Run
-[commands]
+
 
 ### Project Documentation
 For Software:
 
 # Screenshots (Add at least 3)
-![Screenshot1](Add screenshot 1 here with proper name)
-*Add caption explaining what this shows*
 
-![Screenshot2](Add screenshot 2 here with proper name)
-*Add caption explaining what this shows*
+<img width="1917" height="1033" alt="Screenshot 2026-09-12 052224" src="https://github.com/user-attachments/assets/16475b0a-ff6b-4e7d-8643-c7b6fc6be717" />
 
-![Screenshot3](Add screenshot 3 here with proper name)
-*Add caption explaining what this shows*
 
 
 
