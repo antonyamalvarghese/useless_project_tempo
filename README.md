@@ -7,41 +7,31 @@
 
 
 ## Basic Details
-### Team Name: [YAPSQUAD]
+### Team Name: YAPSQUAD
 
 
 ### Team Members
-- Team Lead: [RINZ LOJI] - [RIT, KOTTAYAM]
-- Member 2: [ANTONYAMAL VARGHESE] - [RIT, KOTTAYAM]
+- Team Lead: RINZ LOJI - RIT, KOTTAYAM
+- Member 2: ANTONYAMAL VARGHESE - RIT, KOTTAYAM
 
 
 ### Project Description
-[Buffalo political party predictor which predicts the party of a buffalo using the features like milk production,amount of dung,horn length,food consumption,and property damage with the help of KNN Machine Learning Model.]
+Buffalo political party predictor which predicts the party of a buffalo using the features like milk production,amount of dung,horn length,food consumption,and property damage with the help of KNN Machine Learning Model.
 
 ### The Problem (that doesn't exist)
-[Sometimes the buffalos are categorized into wrong political parties.]
+Sometimes the buffalos are categorized into wrong political parties.
 
 ### The Solution (that nobody asked for)
-[Our solution ensure that all buffalos are categorized to the right parties by analyzing thier  features like milk production,food consumption,horn lenght,dung quantity, and property damage.]
+Our solution ensure that all buffalos are categorized to the right parties by analyzing thier  features like milk production,food consumption,horn lenght,dung quantity, and property damage.
 
 ## Technical Details
 ### Technologies/Components Used
 For Software:
-- [React,Tailwind CSS,]
-- [Node.js,Express]
-- [pandas,KNeighborsClassifier,joblib]
-- [Antigravity, Google Colab]
+- React,Tailwind CSS
+- Node.js,Express
+- pandas,KNeighborsClassifier,joblib
+- Antigravity, Google Colab
 
-For Hardware:
-- [List main components]
-- [List specifications]
-- [List tools required]
-
-
-
-
-### Project Documentation
-For Software:
 
 # Screenshots (Add at least 3)
 
