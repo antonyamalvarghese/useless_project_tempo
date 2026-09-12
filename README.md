@@ -46,7 +46,11 @@ For Software:
 # Screenshots (Add at least 3)
 
 <img width="1917" height="1033" alt="Screenshot 2026-09-12 052224" src="https://github.com/user-attachments/assets/16475b0a-ff6b-4e7d-8643-c7b6fc6be717" />
-[Landing page]
+Landing page
+<img width="1917" height="1033" alt="Screenshot 2026-09-12 052224" src="https://github.com/user-attachments/assets/d20bcad2-f2a0-42c8-89ba-ef90cbe008f7" />
+Feature input page
+<img width="1919" height="1033" alt="Screenshot 2026-09-12 052243" src="https://github.com/user-attachments/assets/fe6e2734-0374-4c45-a14b-345b7012c8ce" />
+Predicted output
 
 
 
