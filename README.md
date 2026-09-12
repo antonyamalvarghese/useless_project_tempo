@@ -46,6 +46,7 @@ For Software:
 # Screenshots (Add at least 3)
 
 <img width="1917" height="1033" alt="Screenshot 2026-09-12 052224" src="https://github.com/user-attachments/assets/16475b0a-ff6b-4e7d-8643-c7b6fc6be717" />
+[Landing page]
 
 
 
